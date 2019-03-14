@@ -1,0 +1,19 @@
+<div class="fx-row fx-end-start">
+  <button mat-button (click)="back()" color="accent">
+    <div class="fx-row fx-center-center fx-gap-5">
+      <span>بازگشت</span>
+      <mat-icon>arrow_backward</mat-icon>
+    </div>
+  </button>
+</div>
+<h2>{{model.nameFa}}</h2>
+<p class="caption">مکان: {{model.location}}</p>
+<p class="caption">نوع همکاری: {{JobType[model.type]}}</p>
+<mat-divider></mat-divider>
+<br />
+<h3>توضیحات</h3>
+<p>{{model.descriptionFa}}</p>
+<br />
+<div class="text-center">
+  <button mat-raised-button color="primary" (click)="apply()">ارسال درخواست همکاری</button>
+</div>

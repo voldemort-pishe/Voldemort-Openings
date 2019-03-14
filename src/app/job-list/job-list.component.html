@@ -1,10 +1,10 @@
-<div>
+<div *ngIf="!selectedJob">
   <h3>فرصت‌های شغلی</h3>
   <mat-list *ngIf="jobs">
     <ng-container *ngFor="let job of jobs">
       <mat-list-item>
         <div mat-line class="job-title">
-          <a [routerLink]="['job', job.id]">
+          <a (click)="selectedJob = job">
             {{job.nameFa}}
           </a>
         </div>
@@ -23,3 +23,5 @@
     </ng-container>
   </mat-list>
 </div>
+
+<app-job-detail *ngIf="selectedJob" [model]="selectedJob" (backClicked)="selectedJob = null"></app-job-detail>

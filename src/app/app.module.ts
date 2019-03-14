@@ -9,6 +9,7 @@ import { CompanyInfoComponent } from './company-info/company-info.component';
 import { LandingComponent } from './landing/landing.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { JobDetailComponent } from './job-detail/job-detail.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
     JobListComponent,
     CompanyInfoComponent,
     LandingComponent,
+    JobDetailComponent,
   ],
   imports: [
     BrowserModule,

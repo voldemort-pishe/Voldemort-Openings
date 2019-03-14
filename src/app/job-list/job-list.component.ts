@@ -11,10 +11,11 @@ import { JobType } from '../models/job-type';
 })
 export class JobListComponent implements OnInit, OnChanges {
 
-  JobType:typeof JobType=JobType;
+  JobType: typeof JobType = JobType;
 
   @Input() subDomain: string;
   jobs: JobModel[];
+  selectedJob: JobModel;
 
   constructor(
     private http: HttpClient,
