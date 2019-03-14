@@ -24,4 +24,4 @@
   </mat-list>
 </div>
 
-<app-job-detail *ngIf="selectedJob" [model]="selectedJob" (backClicked)="selectedJob = null"></app-job-detail>
+<app-job-detail *ngIf="selectedJob" [model]="selectedJob" [subDomain]="subDomain" (backClicked)="selectedJob = null"></app-job-detail>

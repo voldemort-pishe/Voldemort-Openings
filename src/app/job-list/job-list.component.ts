@@ -26,11 +26,6 @@ export class JobListComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     this.http.get<JobModel[]>(`${environment.baseUrl}career-page/job/${this.subDomain}`).subscribe(r => {
-      console.log(r);
-      this.jobs = r;
-    });
-    this.http.get<JobModel[]>(`${environment.baseUrl}career-page/job/details/1/${this.subDomain}`).subscribe(r => {
-      console.warn(r);
       this.jobs = r;
     });
   }

@@ -10,6 +10,8 @@ import { LandingComponent } from './landing/landing.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { JobDetailComponent } from './job-detail/job-detail.component';
+import { ApplyDialogComponent } from './apply-dialog/apply-dialog.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,15 +20,21 @@ import { JobDetailComponent } from './job-detail/job-detail.component';
     CompanyInfoComponent,
     LandingComponent,
     JobDetailComponent,
+    ApplyDialogComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
   ],
   providers: [],
+  entryComponents: [
+    ApplyDialogComponent,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

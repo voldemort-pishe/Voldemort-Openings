@@ -22,7 +22,6 @@ export class CompanyInfoComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     this.http.get<CompanyInfoModel>(`${environment.baseUrl}career-page/company/${this.subDomain}`).subscribe(r => {
-      console.log(r);
       this.model = r;
     });
   }

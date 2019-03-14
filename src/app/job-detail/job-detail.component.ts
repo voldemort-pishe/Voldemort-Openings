@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { JobModel } from '../models/job.model';
 import { JobType } from '../models/job-type';
+import { MatDialog } from '@angular/material';
+import { ApplyDialogComponent } from '../apply-dialog/apply-dialog.component';
 
 @Component({
   selector: 'app-job-detail',
@@ -11,10 +13,13 @@ export class JobDetailComponent implements OnInit {
 
   JobType: typeof JobType = JobType;
 
+  @Input() subDomain: string;
   @Input() model: JobModel;
   @Output() backClicked: EventEmitter<void> = new EventEmitter<void>();
 
-  constructor() { }
+  constructor(
+    private dialog: MatDialog,
+  ) { }
 
   ngOnInit() {
   }
@@ -24,6 +29,9 @@ export class JobDetailComponent implements OnInit {
   }
 
   apply(): void {
-
+    this.dialog.open(ApplyDialogComponent, {
+      width: '400px',
+      data: { subDomain: this.subDomain, job: this.model },
+    });
   }
 }
