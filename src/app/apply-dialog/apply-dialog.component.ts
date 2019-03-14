@@ -19,9 +19,8 @@ export class ApplyDialogComponent implements OnInit {
   selectedFile: File;
   uploadPercentage: number;
 
-  get isFileUploaded(): boolean {
-    return this.fileIdControl.valid;
-  }
+  isFileUploading: boolean = false;
+  isFileUploaded: boolean = false;
 
   constructor(
     private http: HttpClient,
@@ -34,7 +33,7 @@ export class ApplyDialogComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.fileIdControl = new FormControl(null);
+    this.fileIdControl = new FormControl(null, Validators.required);
     this.form = new FormGroup({
       firstName: new FormControl(null, Validators.required),
       lastName: new FormControl(null, Validators.required),
@@ -49,21 +48,30 @@ export class ApplyDialogComponent implements OnInit {
 
   onFileChange(fileList: FileList): void {
     this.form.patchValue({ fileId: null });
+    this.isFileUploaded = false;
+    this.isFileUploading = true;
+    this.uploadPercentage = null;
 
     this.selectedFile = fileList[0];
     const formData: FormData = new FormData();
     formData.append('file', this.selectedFile, this.selectedFile.name);
 
-    this.http.post<any>(`${environment.baseUrl}career-page/file/${this.subDomain}`, formData, { reportProgress: true })
-      .subscribe(r => {
-        if (r.type === HttpEventType.UploadProgress) {
-          this.uploadPercentage = Math.round(100 * r.loaded / r.total);
-          console.log(`File is ${this.uploadPercentage}% uploaded.`);
+    this.http.post<any>(`${environment.baseUrl}career-page/file/${this.subDomain}`, formData, { observe: 'events', reportProgress: true })
+      .subscribe(
+        event => {
+          if (event.type === HttpEventType.UploadProgress) {
+            this.uploadPercentage = Math.round(100 * event.loaded / event.total);
+          }
+          else if (event instanceof HttpResponse) {
+            this.isFileUploading = false;
+            this.isFileUploaded = true;
+            this.form.patchValue({ fileId: event.body.id });
+          }
+        },
+        error => {
+          this.isFileUploading = false;
         }
-        else if (r instanceof HttpResponse) {
-          this.form.patchValue({ fileId: r.body.id });
-        }
-      });
+      );
   }
 
   submit(): void {
