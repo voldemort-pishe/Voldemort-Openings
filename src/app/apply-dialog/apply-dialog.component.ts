@@ -34,7 +34,7 @@ export class ApplyDialogComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.fileIdControl = new FormControl(null, Validators.required);
+    this.fileIdControl = new FormControl(null);
     this.form = new FormGroup({
       firstName: new FormControl(null, Validators.required),
       lastName: new FormControl(null, Validators.required),

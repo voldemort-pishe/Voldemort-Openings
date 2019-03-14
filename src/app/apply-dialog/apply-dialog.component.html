@@ -17,7 +17,7 @@
       <input hidden #file type="file" (change)="onFileChange(file.files)" />
       <button mat-button color="accent" (click)="file.click()">بارگذاری رزومه</button>
       <div *ngIf="uploadPercentage != null">در حال بارگذاری فایل {{uploadPercentage}}٪</div>
-      <div *ngIf="isFileUploaded">فایل {{selectedFile.name}} با موفقیت بارگذاری شد.</div>
+      <div *ngIf="selectedFile && isFileUploaded">فایل {{selectedFile.name}} با موفقیت بارگذاری شد.</div>
     </div>
   </mat-dialog-content>
   <mat-dialog-actions>
