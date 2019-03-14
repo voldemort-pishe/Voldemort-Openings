@@ -1,0 +1,15 @@
+@import '~@angular/material/theming';
+// @import 'material-icons';
+@import 'font';
+// @import 'variables';
+
+$typography: mat-typography-config(
+    $font-family:   'Vazir, Roboto, "Helvetica Neue", sans-serif',
+);
+
+@include mat-core($typography);
+
+// The warn palette is optional (defaults to red).
+// $app-theme: mat-light-theme($app-primary, $app-accent, $app-warn);
+
+// @include angular-material-theme($app-theme);

@@ -1,0 +1,198 @@
+@import 'variables';
+
+.fx-fill {
+    height: 100%;
+    width: 100%;
+    min-height: 100%;
+    min-width: 100%;
+}
+
+.fx-row {
+    display: flex !important;
+    flex-direction: row;
+    box-sizing: border-box;
+}
+
+.fx-row-wrap {
+    @extend .fx-row;
+    flex-wrap: wrap;
+}
+
+.fx-column {
+    display: flex !important;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+// ALIGN
+
+.fx-start-center {
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+}
+
+.fx-start-stretch {
+    justify-content: flex-start;
+    align-content: stretch;
+    align-items: stretch;
+}
+
+.fx-center-center {
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.fx-spacebetween-start {
+    justify-content: space-between;
+    align-content: flex-start;
+    align-items: flex-start;
+}
+
+.fx-spacebetween-center {
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+}
+
+.fx-spacebetween-end {
+    justify-content: space-between;
+    align-content: flex-end;
+    align-items: flex-end;
+}
+
+.fx-spacebetween-stretch {
+    justify-content: space-between;
+    align-content: stretch;
+    align-items: stretch;
+}
+
+.fx-spacearound-center {
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+}
+
+.fx-end-start {
+    justify-content: flex-end;
+    align-content: flex-start;
+    align-items: flex-start;
+}
+
+.fx-end-center {
+    justify-content: flex-end;
+    align-content: center;
+    align-items: center;
+}
+
+.fx-grow {
+    flex: 1 1 100%;
+}
+
+.fx-initial {
+    flex: 0 1 auto;
+}
+
+.fx-auto {
+    flex: 1 1 0%;
+}
+
+.fx-none {
+    flex: 0 0 auto;
+}
+
+.fx-nogrow {
+    flex: 0 1 auto;
+}
+
+.fx-noshrink {
+    flex: 1 0 auto;
+}
+
+// GAPS
+
+// TODO: use dir=rtl selector for margin-left
+.fx-row.fx-gap-5>*:not(:last-child),
+.horizontal-gap-5>*:not(:last-child) {
+    margin-left: 5px;
+}
+
+.fx-row.fx-gap-10>*:not(:last-child),
+.horizontal-gap-10>*:not(:last-child) {
+    margin-left: 10px;
+}
+
+.fx-row.fx-gap-15>*:not(:last-child),
+.horizontal-gap-15>*:not(:last-child) {
+    margin-left: 15px;
+}
+
+.fx-row.fx-gap-20>*:not(:last-child),
+.horizontal-gap-20>*:not(:last-child) {
+    margin-left: 20px;
+}
+
+.fx-row.fx-gap-30>*:not(:last-child),
+.horizontal-gap-30>*:not(:last-child) {
+    margin-left: 30px;
+}
+
+.fx-row.fx-gap-40>*:not(:last-child),
+.horizontal-gap-40>*:not(:last-child) {
+    margin-left: 40px;
+}
+
+.fx-column.fx-gap-5>*:not(:last-child),
+.vertical-gap-5>*:not(:last-child) {
+    margin-bottom: 5px;
+}
+
+.fx-column.fx-gap-10>*:not(:last-child),
+.vertical-gap-10>*:not(:last-child) {
+    margin-bottom: 10px !important;
+}
+
+.fx-column.fx-gap-15>*:not(:last-child),
+.vertical-gap-15>*:not(:last-child) {
+    margin-bottom: 15px !important;
+}
+
+.fx-column.fx-gap-20>*:not(:last-child),
+.vertical-gap-20>*:not(:last-child) {
+    margin-bottom: 20px !important;
+}
+
+// HIDE
+
+.fx-hide-lt-md {
+    @media(max-width: map-get($layout-breakpoints, md)) {
+        display: none !important;
+    }
+}
+
+.fx-hide-lt-sm {
+    @media(max-width: map-get($layout-breakpoints, sm)) {
+        display: none !important;
+    }
+}
+
+.fx-hide-gt-xs {
+    @media(min-width: map-get($layout-breakpoints, sm)) {
+        display: none !important;
+    }
+}
+
+.fx-hide-gt-sm {
+    @media(min-width: map-get($layout-breakpoints, md)) {
+        display: none !important;
+    }
+}
+
+// RESPONSIVE
+
+.fx-grow-lt-md {
+    @media(max-width: map-get($layout-breakpoints, md)) {
+        flex: 1 1 100%;
+    }
+}

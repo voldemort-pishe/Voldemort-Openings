@@ -1,0 +1,25 @@
+<div>
+  <h3>فرصت‌های شغلی</h3>
+  <mat-list *ngIf="jobs">
+    <ng-container *ngFor="let job of jobs">
+      <mat-list-item>
+        <div mat-line class="job-title">
+          <a [routerLink]="['job', job.id]">
+            {{job.nameFa}}
+          </a>
+        </div>
+
+        <div mat-line class="fx-row fx-start-center fx-gap-5 caption">
+          <mat-icon [inline]="true">access_time</mat-icon>
+          <span>{{JobType[job.type]}}</span>
+        </div>
+
+        <div mat-line class="fx-row fx-start-center fx-gap-5 caption">
+          <mat-icon [inline]="true">location_on</mat-icon>
+          <span>{{job.location}}</span>
+        </div>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+    </ng-container>
+  </mat-list>
+</div>

@@ -1,0 +1,60 @@
+.full-height {
+    height: 100%;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.vertical-center {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+}
+
+.clear {
+    clear: both;
+    overflow: auto;
+}
+
+.scrollable-list {
+    overflow-y: auto;
+}
+
+.layout-padding,
+.layout-padding>* {
+    padding: 8px;
+}
+
+.layout-margin>* {
+    margin: 12px;
+}
+
+.ltr-input input {
+    text-align: left !important;
+    direction: ltr;
+}
+
+.no-padding {
+    padding: 0 !important;
+}
+
+.no-shadow {
+    box-shadow: none !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.text-truncate {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.date {
+    direction: ltr;
+    text-align: right;
+}
