@@ -77,7 +77,7 @@ export class ApplyDialogComponent implements OnInit {
   submit(): void {
     this.http.post<any>(`${environment.baseUrl}career-page/candidate/${this.subDomain}`, this.form.value)
       .subscribe(r => {
-        this.snackBar.open(r.message, null, { duration: 3000 });
+        this.snackBar.open('درخواست همکاری شما با موفقیت ثبت شد.', null, { duration: 3000 });
         this.dialogRef.close();
       });
   }
