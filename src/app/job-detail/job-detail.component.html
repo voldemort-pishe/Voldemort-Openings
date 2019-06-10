@@ -12,7 +12,7 @@
 <mat-divider></mat-divider>
 <br />
 <h3>توضیحات</h3>
-<p>{{model.descriptionFa}}</p>
+<div [innerHTML]="model.descriptionFa"></div>
 <br />
 <div class="text-center">
   <button mat-raised-button color="primary" (click)="apply()">ارسال درخواست همکاری</button>
