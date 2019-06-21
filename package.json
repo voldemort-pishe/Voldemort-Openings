@@ -6,6 +6,7 @@
     "start": "ng serve --port 4201 --proxy-config proxy.conf.json",
     "local": "ng serve --port 4201 --proxyConfig proxy-local.conf.json",
     "build": "ng build",
+    "build-prod": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
